@@ -8,6 +8,27 @@ public class Exercise1 {
 
     public static boolean isValidISBN(String isbn) {
         // TODO: Exercise 1a
+        // TODO: Sind genau 13 Digits enthalten ? Es können auch andere Zeichen enthalten sein!!!!
+        String onlyDigits = isbn.replaceAll("\\D+", "");
+
+        // TODO: alle 13 Digits in ein Array schreiben
+        char[] charArray = onlyDigits.toCharArray();
+
+        // TODO: Erste 3 Dugits == 978 or 979
+        //System.out.println(onlyDigits.substring(0,2)); // Test
+
+        if (onlyDigits.substring(0,3).equals("978") || onlyDigits.substring(0,3).equals("979")){
+            return true;
+        }
+
+        // ToDO: Summe aller Digit bilden wobei die Digit an gerader Stelle mit 3 multipliziert werden
+        // TODO: letztes Digit der Summe extrahieren
+        // TODO: Dieses von 10 subtrahieren
+        // TODO: Diese mit der 13. Stelle vergleich, wenn identisch dann true zurückgeben
+
+
+
+
         return false;
     }
 
