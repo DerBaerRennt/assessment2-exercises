@@ -9,6 +9,7 @@ public class Exercise1 {
     public static boolean isValidISBN(String isbn) {
         // TODO: Exercise 1a
         // TODO: Sind genau 13 Digits enthalten ? Es können auch andere Zeichen enthalten sein!!!!
+        //alle sonder Zeichen entfernt
         String onlyDigits = isbn.replaceAll("\\D+", "");
 
         // TODO: alle 13 Digits in ein Array schreiben
@@ -16,24 +17,50 @@ public class Exercise1 {
 
         // TODO: Erste 3 Dugits == 978 or 979
         //System.out.println(onlyDigits.substring(0,2)); // Test
+        if (charArray.length == 13 ){
 
-        if (onlyDigits.substring(0,3).equals("978") || onlyDigits.substring(0,3).equals("979")){
-            return true;
+            if (onlyDigits.substring(0,3).equals("978") || onlyDigits.substring(0,3).equals("979")){
+                // ToDO: Summe aller Digit bilden wobei die Digit an gerader Stelle mit 3 multipliziert werden
+                int summeAllerDigits = 0;
+                for (int i = 0; i < charArray.length -1 ; i++) {
+                    if ((i+1) % 2 == 0){ //index gerade
+                        //9                  //9                 //7*3
+                        summeAllerDigits = summeAllerDigits + Character.getNumericValue(charArray[i]) * 3 ;
+                    } else {
+                        summeAllerDigits = summeAllerDigits + Character.getNumericValue(charArray[i]);
+                    }
+                }
+                // TODO: letztes Digit der Summe extrahieren
+
+                String summeAlsString = Integer.toString(summeAllerDigits);
+                char lastDigitt = summeAlsString.charAt(summeAlsString.length() -1 );
+
+                // TODO: Dieses von 10 subtrahieren
+
+                int checkSum = 10 - Character.getNumericValue(lastDigitt);
+                String chechSumAsString = Integer.toString(checkSum);
+                lastDigitt = chechSumAsString.charAt(chechSumAsString.length() -1 );
+
+                // TODO: Diese mit der 13. Stelle vergleich, wenn identisch dann true zurückgeben
+                //int nimmt == nicht .equals
+                if (lastDigitt == charArray[12] ){
+
+                    return true;
+
+                }
+            }
+
         }
-
-        // ToDO: Summe aller Digit bilden wobei die Digit an gerader Stelle mit 3 multipliziert werden
-        // TODO: letztes Digit der Summe extrahieren
-        // TODO: Dieses von 10 subtrahieren
-        // TODO: Diese mit der 13. Stelle vergleich, wenn identisch dann true zurückgeben
-
-
-
-
         return false;
     }
 
+
     public static boolean hasInvalidISBN(Book book) {
         // TODO: Exercise 1b
+
+
+
+
         return false;
     }
 
