@@ -32,6 +32,17 @@ public class Bookstore {
      */
     public void addBook(Book b) {
       //TODO: Exercise 2a
+//        //TODO: Exercise 2a
+//        String normalized = normalizeISBN(b.getIsbn());
+//        if (!this.stock.containsKey(normalized)) {
+//            this.stock.put(normalized,1);
+//        } else  {
+//            this.stock.put(normalized, stock.get(normalized) + 1);
+//
+//        }
+//        if (!this.bookDatabase.containsKey(normalized)) {
+//            this.bookDatabase.put(normalized,b);
+//        }
     }
 
     /**
@@ -63,6 +74,16 @@ public class Bookstore {
     public Set<Book> filterBooksByPrice(double price) {
         // TODO: Exercise 2b
         return null;
+
+//        // TODO: Exercise 2b
+//        Set<Book> bookListe = new HashSet<>();
+//        for (Book book: bookDatabase.values()) {
+//            if (book.getPrice()<= price) {
+//                bookListe.add(book);
+//
+//            }
+//        }
+//        return bookliste;
     }
 
     /**
@@ -73,6 +94,13 @@ public class Bookstore {
     public double averageStockAmount() {
         // TODO: Exercise 2c
         return 0.0;
+//        // TODO: Exercise 2c
+//        double bookAmount = 0;
+//        for (Integer amountOfBooks : stock.values()) {
+//            bookAmount += amountOfBooks;
+//        }
+//
+//        return bookAmount / bookDatabase.size();
     }
 
     public Map<String, Integer> getStock() {

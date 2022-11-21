@@ -53,15 +53,48 @@ public class Exercise1 {
         }
         return false;
     }
+//    public static boolean isValidISBN(String isbn) {
+//        // TODO: Exercise 1a
+//
+//        String justDigits = isbn.replaceAll("\\D+", "");
+//        if (justDigits.length() != 13) {
+//            return false;
+//        }
+////        2. check the prefix (= first three digits), they shall be 978 or 979
+//        if (!justDigits.startsWith("978") && !justDigits.startsWith("979")) {
+//            return false;
+//        }
+////        3. calculate the checksum / checkdigit and make sure that it matches the last digit of the ISBN:
+////        a) multiply each subsequent digit alternately by 1 and 3 and sum up the results //DONE
+////        b) determine the next higher number which can be divided by 10
+////        c) calculate the difference between b) and a)
+////        d) check if the result from c) matches the last digit of the ISBN String
+////           9789391392499
+//        int ungerade= 0;
+//        int gerade = 0;
+//
+//        for (int i = 0; i < justDigits.length()-1; i+=2) {
+//            ungerade +=  Integer.parseInt(String.valueOf(justDigits.charAt(i)));//erst char at dadurch '9'(typ char) dann String ("9") dann int (9).
+//        }
+//        for (int j = 1; j <justDigits.length() -1; j+=2) {
+//            gerade += 3*Integer.parseInt(String.valueOf(justDigits.charAt(j)));
+//        }
+//
+//        int ergbenis = 10-(ungerade+gerade)%10;
+//        if (ergbenis == 10) {
+//            ergbenis = 0;
+//
+//
+//        }
+////       justDigits.endsWith(String.valueOf(ergbenis));
+////
+//        return ergbenis==Integer.parseInt(String.valueOf(justDigits.charAt(12)));
+//    }
 
 
     public static boolean hasInvalidISBN(Book book) {
         // TODO: Exercise 1b
-
-
-
-
-        return false;
+        return !isValidISBN(book.getIsbn());
     }
 
     public static void main(String[] args) {
