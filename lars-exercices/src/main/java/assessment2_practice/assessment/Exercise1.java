@@ -7,13 +7,34 @@ import assessment2_practice.test.Test;
 public class Exercise1 {
 
     public static boolean isValidISBN(String isbn) {
-        // TODO: Exercise 1a
-        return false;
+
+        String onlyDigits = isbn.replaceAll("\\D+", "");    // alle non-digits entfernen
+        char[] charArray = onlyDigits.toCharArray();        // in array schreiben
+        if (charArray.length == 13 ){       // sind es genau 13 Digits?
+            if (onlyDigits.substring(0,3).equals("978") || onlyDigits.substring(0,3).equals("979")){        // beginnen die ISBN mit 978 oder 979?
+                int summeAllerDigits = 0; // Summenbildung beginnt hier
+                for (int i = 0; i < charArray.length -1 ; i++) {
+                    if ((i+1) % 2 == 0){    // ist die position des Digits eine gerade Zahl?
+                        summeAllerDigits = summeAllerDigits + Character.getNumericValue(charArray[i]) * 3 ; // addiere den dreifachen Wert
+                    } else {
+                        summeAllerDigits = summeAllerDigits + Character.getNumericValue(charArray[i]); // addiere den einfachen Wert
+                    }
+                }       // Summenbildung endet hier
+                String summeAlsString = Integer.toString(summeAllerDigits);
+                char lastDigitt = summeAlsString.charAt(summeAlsString.length() -1 ); // letztes Digit der Summe
+                int checkSum = 10 - Character.getNumericValue(lastDigitt); // Checksum = 10 minus letztes Digit
+                String chechSumAsString = Integer.toString(checkSum);
+                lastDigitt = chechSumAsString.charAt(chechSumAsString.length() -1 ); // letztes Digit von Checksum, wenn mehrstellig
+                if (lastDigitt == charArray[12] ){
+                    return true;    // Checksum ok
+                }
+            }
+        }
+        return false;   // Checksum nicht ok
     }
 
     public static boolean hasInvalidISBN(Book book) {
-        // TODO: Exercise 1b
-        return false;
+        return !isValidISBN(book.getIsbn());
     }
 
     public static void main(String[] args) {

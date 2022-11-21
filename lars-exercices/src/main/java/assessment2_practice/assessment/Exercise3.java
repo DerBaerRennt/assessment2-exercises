@@ -1,5 +1,8 @@
 package assessment2_practice.assessment;
 
+import assessment2_practice.books.Bookstore;
+import assessment2_practice.test.Test;
+
 public class Exercise3 {
 
     public static void main(String[] args) {
