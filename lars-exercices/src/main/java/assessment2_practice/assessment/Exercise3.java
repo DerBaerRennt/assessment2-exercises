@@ -1,6 +1,8 @@
 package assessment2_practice.assessment;
 
+import assessment2_practice.books.Book;
 import assessment2_practice.books.Bookstore;
+import assessment2_practice.books.Library;
 import assessment2_practice.test.Test;
 
 public class Exercise3 {
@@ -17,17 +19,17 @@ public class Exercise3 {
             (a) A books must be passed in the constructor.  There must be
             a getter method for it.
          */
-//        Bookstore thalio = new Bookstore();
-//        Library cityLibrary = new Library(thalio);
-//        Test.equals(thalio, cityLibrary.getStore());
+        Bookstore thalio = new Bookstore();
+        Library cityLibrary = new Library(thalio);
+        Test.equals(thalio, cityLibrary.getStore());
 
         /*
             (b) The number of clients of the library (datatype int) is accessible
             by getter and setter methods. Its default value is 0.
          */
-//        Test.equals(0, cityLibrary.getNoOfClients());
-//        cityLibrary.setNoOfClients(91);
-//        Test.equals(91, cityLibrary.getNoOfClients());
+        Test.equals(0, cityLibrary.getNoOfClients());
+        cityLibrary.setNoOfClients(91);
+        Test.equals(91, cityLibrary.getNoOfClients());
 
         /*
             (c) The library stores its Books in a collection together with a boolean
@@ -50,33 +52,33 @@ public class Exercise3 {
             HINT: All of these methods are one-liners, if you choose the right collection and use its methods!
 
          */
-//        /* Library is initially empty */
-//        Test.equals(0, cityLibrary.getNoOfBooks());
-//
-//        Book b1 = new Book("Java ist auch eine Insel", "Christian Ullenboom", 49.90, "ISBN 978-3836287456");
-//        Book b2 = new Book("Getting skilled with Java", "M Rashid Raza", 28.88, "978-9-39-139249-9");
-//        Book b3 = new Book("Java Programmieren für Einsteiger", "Simon Flaig", 13.95, "979-866919260 0");
-//        Book b4 = new Book("Java Kompendium: Professionell Java programmieren lernen", "Markus Neumann", 26.99, "9783966450546");
-//
-//        /* add books to the library */
-//        cityLibrary.addBook(b1);
-//        Test.equals(1, cityLibrary.getNoOfBooks());
-//        cityLibrary.addBook(b2);
-//        Test.equals(2, cityLibrary.getNoOfBooks());
-//        cityLibrary.addBook(b3);
-//        Test.equals(3, cityLibrary.getNoOfBooks());
-//
-//        /* trying to add b1 again */
-//        cityLibrary.addBook(b1);
-//        Test.equals(3, cityLibrary.getNoOfBooks());
-//
-//        /* removing b2 */
-//        Test.equals(true, cityLibrary.removeBook(b2));
-//        Test.equals(2, cityLibrary.getNoOfBooks());
-//
-//        /* removing b2 again */
-//        Test.equals(false, cityLibrary.removeBook(b2));
-//        Test.equals(2, cityLibrary.getNoOfBooks());
+        /* Library is initially empty */
+        Test.equals(0, cityLibrary.getNoOfBooks());
+
+        Book b1 = new Book("Java ist auch eine Insel", "Christian Ullenboom", 49.90, "ISBN 978-3836287456");
+        Book b2 = new Book("Getting skilled with Java", "M Rashid Raza", 28.88, "978-9-39-139249-9");
+        Book b3 = new Book("Java Programmieren für Einsteiger", "Simon Flaig", 13.95, "979-866919260 0");
+        Book b4 = new Book("Java Kompendium: Professionell Java programmieren lernen", "Markus Neumann", 26.99, "9783966450546");
+
+        /* add books to the library */
+        cityLibrary.addBook(b1);
+        Test.equals(1, cityLibrary.getNoOfBooks());
+        cityLibrary.addBook(b2);
+        Test.equals(2, cityLibrary.getNoOfBooks());
+        cityLibrary.addBook(b3);
+        Test.equals(3, cityLibrary.getNoOfBooks());
+
+        /* trying to add b1 again */
+        cityLibrary.addBook(b1);
+        Test.equals(3, cityLibrary.getNoOfBooks());
+
+        /* removing b2 */
+        Test.equals(true, cityLibrary.removeBook(b2));
+        Test.equals(2, cityLibrary.getNoOfBooks());
+
+        /* removing b2 again */
+        Test.equals(false, cityLibrary.removeBook(b2));
+        Test.equals(2, cityLibrary.getNoOfBooks());
 
         /*
             (d)
