@@ -1,8 +1,6 @@
 package assessment2_practice.books;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Bookstore {
     /**
@@ -32,6 +30,15 @@ public class Bookstore {
      */
     public void addBook(Book b) {
       //TODO: Exercise 2a
+        String normatizedISBN = b.getIsbn().replaceAll("\\D+", "");
+        if(!bookDatabase.containsKey(normatizedISBN)) {
+            bookDatabase.put(normatizedISBN, b);
+        }
+        if(!stock.containsKey(normatizedISBN)) {
+            stock.put(normatizedISBN, 1);
+        } else {
+            stock.put(normatizedISBN, stock.get(normatizedISBN) + 1);
+        }
     }
 
     /**
@@ -62,7 +69,14 @@ public class Bookstore {
      */
     public Set<Book> filterBooksByPrice(double price) {
         // TODO: Exercise 2b
-        return null;
+        Set books = new HashSet();
+        for(Map.Entry<String, Book> entry : bookDatabase.entrySet()) {
+            Book book = entry.getValue();
+            if(book.getPrice() <= price) {
+                books.add(book);
+            }
+        }
+        return books;
     }
 
     /**
@@ -72,7 +86,12 @@ public class Bookstore {
      */
     public double averageStockAmount() {
         // TODO: Exercise 2c
-        return 0.0;
+        Integer stockOfLib = 0;
+        for(Map.Entry<String, Integer> entry : stock.entrySet()) {
+            Integer stockPerBook = entry.getValue();
+            stockOfLib = stockOfLib + stockPerBook;
+        }
+        return (double) stockOfLib/stock.size();
     }
 
     public Map<String, Integer> getStock() {
