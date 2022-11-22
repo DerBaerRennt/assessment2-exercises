@@ -1,5 +1,6 @@
 package assessment2_practice.assessment;
 
+import assessment2_practice.books.Book;
 import assessment2_practice.books.Bookstore;
 
 import assessment2_practice.books.Library;
@@ -28,9 +29,9 @@ public class Exercise3 {
             (b) The number of clients of the library (datatype int) is accessible
             by getter and setter methods. Its default value is 0.
          */
-//        Test.equals(0, cityLibrary.getNoOfClients());
-//        cityLibrary.setNoOfClients(91);
-//        Test.equals(91, cityLibrary.getNoOfClients());
+        Test.equals(0, cityLibrary.getNoOfClients());
+        cityLibrary.setNoOfClients(91);
+        Test.equals(91, cityLibrary.getNoOfClients());
 
         /*
             (c) The library stores its Books in a collection together with a boolean
@@ -53,33 +54,33 @@ public class Exercise3 {
             HINT: All of these methods are one-liners, if you choose the right collection and use its methods!
 
          */
-//        /* Library is initially empty */
-//        Test.equals(0, cityLibrary.getNoOfBooks());
-//
-//        Book b1 = new Book("Java ist auch eine Insel", "Christian Ullenboom", 49.90, "ISBN 978-3836287456");
-//        Book b2 = new Book("Getting skilled with Java", "M Rashid Raza", 28.88, "978-9-39-139249-9");
-//        Book b3 = new Book("Java Programmieren für Einsteiger", "Simon Flaig", 13.95, "979-866919260 0");
-//        Book b4 = new Book("Java Kompendium: Professionell Java programmieren lernen", "Markus Neumann", 26.99, "9783966450546");
-//
-//        /* add books to the library */
-//        cityLibrary.addBook(b1);
-//        Test.equals(1, cityLibrary.getNoOfBooks());
-//        cityLibrary.addBook(b2);
-//        Test.equals(2, cityLibrary.getNoOfBooks());
-//        cityLibrary.addBook(b3);
-//        Test.equals(3, cityLibrary.getNoOfBooks());
-//
-//        /* trying to add b1 again */
-//        cityLibrary.addBook(b1);
-//        Test.equals(3, cityLibrary.getNoOfBooks());
+        /* Library is initially empty */
+        Test.equals(0, cityLibrary.getNoOfBooks());
+
+        Book b1 = new Book("Java ist auch eine Insel", "Christian Ullenboom", 49.90, "ISBN 978-3836287456");
+        Book b2 = new Book("Getting skilled with Java", "M Rashid Raza", 28.88, "978-9-39-139249-9");
+        Book b3 = new Book("Java Programmieren für Einsteiger", "Simon Flaig", 13.95, "979-866919260 0");
+        Book b4 = new Book("Java Kompendium: Professionell Java programmieren lernen", "Markus Neumann", 26.99, "9783966450546");
+
+        /* add books to the library */
+        cityLibrary.addBook(b1);
+        Test.equals(1, cityLibrary.getNoOfBooks());
+        cityLibrary.addBook(b2);
+        Test.equals(2, cityLibrary.getNoOfBooks());
+        cityLibrary.addBook(b3);
+        Test.equals(3, cityLibrary.getNoOfBooks());
+
+        /* trying to add b1 again */
+        cityLibrary.addBook(b1);
+        Test.equals(3, cityLibrary.getNoOfBooks());
 //
 //        /* removing b2 */
-//        Test.equals(true, cityLibrary.removeBook(b2));
-//        Test.equals(2, cityLibrary.getNoOfBooks());
-//
-//        /* removing b2 again */
-//        Test.equals(false, cityLibrary.removeBook(b2));
-//        Test.equals(2, cityLibrary.getNoOfBooks());
+        Test.equals(true, cityLibrary.removeBook(b2));
+        Test.equals(2, cityLibrary.getNoOfBooks());
+
+        /* removing b2 again */
+        Test.equals(false, cityLibrary.removeBook(b2));
+        Test.equals(2, cityLibrary.getNoOfBooks());
 
         /*
             (d)
@@ -94,19 +95,19 @@ public class Exercise3 {
             HINT: These methods are probably no one-liners, but they are not big neither.
          */
 
-//        cityLibrary.addBook(b2);
-//        Test.equals(false,cityLibrary.isRented(b2));
-//        /* rent b2 */
-//        cityLibrary.switchRentalState(b2);
-//        Test.equals(true, cityLibrary.isRented(b2));
-//        /* return b2 */
-//        cityLibrary.switchRentalState(b2);
-//        Test.equals(false, cityLibrary.isRented(b2));
-//
-//        /* test a book which is not in the library */
-//        Test.equals(false, cityLibrary.isRented(b4));
-//        cityLibrary.switchRentalState(b4);
-//        Test.equals(false, cityLibrary.isRented(b4));
+        cityLibrary.addBook(b2);
+        Test.equals(false,cityLibrary.isRented(b2));
+        /* rent b2 */
+        cityLibrary.switchRentalState(b2);
+        Test.equals(true, cityLibrary.isRented(b2));
+        /* return b2 */
+        cityLibrary.switchRentalState(b2);
+        Test.equals(false, cityLibrary.isRented(b2));
+
+        /* test a book which is not in the library */
+        Test.equals(false, cityLibrary.isRented(b4));
+        cityLibrary.switchRentalState(b4);
+        Test.equals(false, cityLibrary.isRented(b4));
 
         /*
             (e) The method checkJavaBooksAvailable() checks if there are Java books
@@ -118,13 +119,13 @@ public class Exercise3 {
             - Check if the book is available for rent - if so you can directly return true
             - If you are at the end of the library without any available book, return false
          */
-//        Test.equals(true, cityLibrary.checkJavaBooksAvailable());
-//        /* set all books to "rented" */
-//        cityLibrary.switchRentalState(b1);
-//        cityLibrary.switchRentalState(b2);
-//        cityLibrary.switchRentalState(b3);
-//        cityLibrary.switchRentalState(b4);
-//        Test.equals(false, cityLibrary.checkJavaBooksAvailable());
+        Test.equals(true, cityLibrary.checkJavaBooksAvailable());
+        /* set all books to "rented" */
+        cityLibrary.switchRentalState(b1);
+        cityLibrary.switchRentalState(b2);
+        cityLibrary.switchRentalState(b3);
+        cityLibrary.switchRentalState(b4);
+        Test.equals(false, cityLibrary.checkJavaBooksAvailable());
 
     }
 }

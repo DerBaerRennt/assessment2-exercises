@@ -4,25 +4,56 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Library {
-
     private Bookstore store;
-    int noOfClients;
+    private int noOfClients ;
 
 
-    private Map<Book, Boolean> books;
-
+    private HashMap<Book,Boolean> books;
     public Library(Bookstore store) {
-        this.store = store;
+        this.store=store;
         this.noOfClients = 0;
         this.books = new HashMap<>();
+    }
+    public void addBook(Book b){
+        books.put(b, false);
+    }
+    public boolean removeBook(Book b){
+       if(books.remove(b) == null){
+           return false;
+       }
+        return true;
+    }
+    public boolean isRented(Book b){
+        if (books.get(b) == null){
+            return false;
+        }
+        return books.get(b);
+
+    }
+    public void switchRentalState(Book b){
+        if(books.get(b)!=null) { // nur wenn das Buch vorhanden ist
+            if (books.get(b)) {        // wenn value true ist dann ...
+                books.put(b, false);  // setze ihn hier auf false
+            } else {                   // ansonsten ist er auf false, ...
+                books.put(b, true);    // und deshalb muss er hier auf true gesetz werden
+            }
+        }
+    }
+
+    public boolean checkJavaBooksAvailable(){
+        for (Map.Entry<Book, Boolean> entry : books.entrySet()) {
+            if (entry.getKey().getTitle().contains("Java")){
+                if (!entry.getValue()){
+                    return true;
+                }
+            }
+
+        }
+        return false;
     }
 
     public Bookstore getStore() {
         return store;
-    }
-
-    public void setStore(Bookstore store) {
-        this.store = store;
     }
 
     public int getNoOfClients() {
@@ -33,58 +64,7 @@ public class Library {
         this.noOfClients = noOfClients;
     }
 
-    public Map<Book, Boolean> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Map<Book, Boolean> books) {
-        this.books = books;
-    }
-
-    public void addBook(Book b){
-        if(!books.containsKey(b)){
-            books.put(b,false);
-        }
-
-    }
-
-    public int getNoOfBooks(){
+    public int getNoOfBooks() {
         return books.size();
     }
-
-    public Boolean removeBook(Book book){
-        return books.remove(book)!=null;
-
-    }
-
-
-    public Boolean isRented(Book b){
-        if (books.get(b)==null){
-            return false;
-        }
-        return books.get(b);
-    }
-
-
-    public void switchRentalState(Book b){
-        if (books.get(b)!=null) {
-            if (books.get(b)) {
-                books.put(b, false);
-            } else {
-                books.put(b, true);
-            }
-        }
-    }
-    public Boolean checkJavaBooksAvailable(){
-        for (Book book:books.keySet()) {
-            if (book.getTitle().contains("Java")){
-                //wenn das Buch nicht ausgegeben ist -> true
-                if (!books.get(book)){
-                    return true;
-                }
-            }
-
-        }return false;
-    }
 }
-
