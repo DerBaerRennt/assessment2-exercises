@@ -1,5 +1,11 @@
 package assessment2_practice.assessment;
 
+import assessment2_practice.books.Bookstore;
+
+import assessment2_practice.books.Library;
+import assessment2_practice.test.Test;
+
+
 public class Exercise3 {
 
     public static void main(String[] args) {
@@ -14,9 +20,9 @@ public class Exercise3 {
             (a) A books must be passed in the constructor.  There must be
             a getter method for it.
          */
-//        Bookstore thalio = new Bookstore();
-//        Library cityLibrary = new Library(thalio);
-//        Test.equals(thalio, cityLibrary.getStore());
+        Bookstore thalio = new Bookstore();
+        Library cityLibrary = new Library(thalio);
+        Test.equals(thalio, cityLibrary.getStore());
 
         /*
             (b) The number of clients of the library (datatype int) is accessible
